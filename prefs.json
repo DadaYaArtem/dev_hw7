@@ -1,0 +1,6 @@
+{
+  "dbUrlNope": "jdbc:h2:D:\\учёба доп\\ProjectManagementSystem2\\test",
+  "dbUrl": "jdbc:h2:D:\\homeworks\\hw-6\\test",
+  "dbUserName": "",
+  "dbPassword": ""
+}

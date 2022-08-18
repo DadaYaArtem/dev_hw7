@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    .inline {
+    font-size: larger;
+    font: italic small-caps bold 16px/2 cursive;
+    border:2px solid red;
+    font-weight: lighter;
+	background-color:#D0B084;
+    padding:7px;
+    margin:7px;
+	border-radius:7px;
+	opacity:0.9;
+	box-shadow: 10px 10px 10px#2F3841;
+	text-align:center;
+    display: inline-block;
+    }
+</style>
+
+<body>
+<h1 th:text="' Here is information about customer with id: ' + ${customer.id}" class="inline"></h1><br>
+<h2 th:text="'First name ' + ${customer.first_name}" class="inline"></h2>
+<h2 th:text="'Last name ' + ${customer.last_name}" class="inline"></h2>
+<h2 th:text="'Phone Humber ' + ${customer.phone_number}" class="inline"></h2>
+</body>
+</html>

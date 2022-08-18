@@ -1,0 +1,62 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table :  Customers</h1>
+<h2>You can get such following information from this table</h2>
+
+<div>
+    <h3>1. List of  all customers </h3>
+    <form method="GET" action="/ProjectManagementSystem/customers/all_customers">
+        <input type="submit" name="listAllCustomers_submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2. All info about developer </h3>
+    <form method="POST" action="/ProjectManagementSystem/customers/customer_info">
+        Id: <input type="text" name="customerId"><br>
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>3. Add customer </h3>
+    <form method="POST" name="addCustomer" action="/ProjectManagementSystem/customers/add">
+        Customer First Name: <input type="text" name="customerFirstName"><br>
+        Customer Last Name: <input type="text" name="customerLastName"><br>
+        Customer Phone number: <input type="text" name="customerPhone_number"><br>
+        <input type="submit" name="addCustomer_submit" value="Add">
+    </form>
+</div>
+
+<div>
+    <h3>4. Update customer data </h3>
+    <form method="POST" name="updateCustomer" action="/ProjectManagementSystem/customers/update">
+        ID: <input type="text" name="customerId"><br>
+        First Name: <input type="text" name="customerFirstName"><br>
+        Last Name: <input type="text" name="customerLastName"><br>
+        Phone Number: <input type="text" name="customerPhone_number"><br>
+        <input type="submit" name="updateDeveloper_submit" value="Update">
+    </form>
+</div>
+
+<div>
+    <h3>5. Delete customer </h3>
+    <form method="POST" name="deleteCustomer" action="/ProjectManagementSystem/customers/delete">
+        Customer Id: <input type="text" name="customerId"><br>
+        <input type="submit" name="deleteCustomer_submit" value="Delete">
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table :  Skills</h1>
+<h2>You can get such following information from this table</h2>
+<div>
+    <h3>1. List of  all skills </h3>
+    <form method="GET" action="/ProjectManagementSystem/skills/all_skills">
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2. All info about skill </h3>
+    <form method="POST" name="skill" action="/ProjectManagementSystem/skills/skill_info">
+        Project Id: <input type="text" name="skillId"><br>
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>3. Add skill </h3>
+    <form method="POST" action="/ProjectManagementSystem/skills/add">
+        Skill Branch: <input type="text" name="skillBranch"><br>
+        Skillset: <input type="text" name="skillSkill"><br>
+        <input type="submit" name="addSkill_submit" value="Add">
+    </form>
+</div>
+
+<div>
+    <h3>4. Update skill </h3>
+    <form method="POST" action="/ProjectManagementSystem/skills/update">
+        Skill Id: <input type="text" name="skillId"><br>
+        Skill Branch: <input type="text" name="skillBranch"><br>
+        Skillset: <input type="text" name="skillSkill"><br>
+        <input type="submit" name="updateProject_submit" value="Update">
+    </form>
+</div>
+
+<div>
+    <h3>5. Delete skill </h3>
+    <form method="POST" name="deleteSkill" action="/ProjectManagementSystem/skills/delete">
+        Skill Id: <input type="text" name="skillId"><br>
+        <input type="submit" name="deleteSkill_submit" value="Get info">
+    </form>
+</div>
+
+</body>
+</html>
+</body>
+</html>

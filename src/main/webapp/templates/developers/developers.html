@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table: Developers</h1>
+<h2>You can get such following information from this table</h2>
+<div>
+    <h3>1. List of  all developers </h3>
+    <form method="GET" action="/ProjectManagementSystem/developers/all_developers">
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2. All info about developer </h3>
+    <form method="POST" action="/ProjectManagementSystem/developers/developer_info">
+        Id: <input type="text" name="developerId"><br>
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2.1 Projects developer working on:  </h3>
+    <form method="POST" action="/ProjectManagementSystem/developers/developer_project_info">
+        Id: <input type="text" name="developerId"><br>
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2.2 Skills developer have:  </h3>
+    <form method="POST" action="/ProjectManagementSystem/developers/developer_skill_info">
+        Id: <input type="text" name="developerId"><br>
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>3. Add developer </h3>
+    <form method="POST" name="addDeveloper" action="/ProjectManagementSystem/developers/add">
+        First Name: <input type="text" name="developerFirstName"><br>
+        Last Name: <input type="text" name="developerLastName"><br>
+        Age: <input type="text" name="developerAge"><br>
+        Salary: <input type="text" name="developerSalary"><br>
+        (Optional) Project: <input type="text" name="developerProject"><br>
+        (Optional) Language (Java, JS, C#): <input type="text" name="developerLanguage"><br>
+        (Optional) Language Level (junior, middle, senior): <input type="text" name="developerLanguageLevel"><br>
+        <input type="submit" name="addDeveloper_submit" value="Add">
+    </form>
+</div>
+
+<div>
+<h3>4. Update developer data </h3>
+<form method="POST" name="updateDeveloper" action="/ProjectManagementSystem/developers/update">
+    ID: <input type="text" name="developerId"><br>
+    First Name: <input type="text" name="developerFirstName"><br>
+    Last Name: <input type="text" name="developerLastName"><br>
+    Age: <input type="text" name="developerAge"><br>
+    Salary: <input type="text" name="developerSalary"><br>
+    (Optional) Project: <input type="text" name="developerProject"><br>
+    (Optional) Language (Java, JS, C++, PHP): <input type="text" name="developerLanguage"><br>
+    (Optional) Language Level (junior, middle, senior): <input type="text" name="developerLanguageLevel"><br>
+    <input type="submit" name="updateDeveloper_submit" value="Update">
+</form>
+</div>
+
+<div>
+    <h3>5. Delete developer </h3>
+    <form method="POST" name="deleteDeveloper" action="/ProjectManagementSystem/developers/delete">
+        Id: <input type="text" name="developerId"><br>
+        <input type="submit" name="deleteDeveloper_submit" value="Delete">
+    </form>
+</div>
+
+</body>
+</html>

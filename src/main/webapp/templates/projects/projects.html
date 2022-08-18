@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table :  Projects</h1>
+<h2>You can get such following information from this table</h2>
+<div>
+    <h3>1. List of  all projects </h3>
+    <form method="GET" action="/ProjectManagementSystem/projects/all_projects">
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2. All info about project </h3>
+    <form method="POST" name="project" action="/ProjectManagementSystem/projects/project_info">
+        Project Id: <input type="text" name="projectId"><br>
+        <input type="submit" name="project_submit" value="Get info">
+    </form>
+</div>
+
+<!--<div>-->
+<!--    <h3>3. List developers of certain project </h3>-->
+<!--    <form method="POST" name="listDevelopersOfProject" action="/projects/developers">-->
+<!--        Project Name: <input type="text" name="projectName"><br>-->
+<!--        <input type="submit" name="listDevelopersOfProject_submit" value="Get info">-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--    <h3>4. Cost of certain project </h3>-->
+<!--    <form method="POST" name="costOfProject" action="/projects/cost">-->
+<!--        Project Name: <input type="text" name="projectName"><br>-->
+<!--        <input type="submit" name="costOfProject_submit" value="Get info">-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--    <h3>5. List of  all projects  in format :  "date-name-quantity developers" </h3>-->
+<!--    <form method="POST" name="listAllProjectsInSpecialFormat" action="/projects/all_projects_in_special_format">-->
+<!--        <input type="submit" name="listAllProjectsInSpecialFormat_submit" value="Get info">-->
+<!--    </form>-->
+<!--</div>-->
+
+
+<div>
+    <h3>3. Add project </h3>
+    <form method="POST" action="/ProjectManagementSystem/projects/add">
+        Project Name: <input type="text" name="projectName"><br>
+        Cost: <input type="text" name="projectCost"><br>
+        Foundation Date : <input type="date" name="projectDate"><br>
+        <input type="submit" name="addProject_submit" value="Add">
+    </form>
+</div>
+
+<div>
+    <h3>4. Update project </h3>
+    <form method="POST" action="/ProjectManagementSystem/projects/update">
+        Project Id: <input type="text" name="projectId"><br>
+        Project Name: <input type="text" name="projectName"><br>
+        Cost: <input type="text" name="projectCost"><br>
+        Foundation Date : <input type="date" name="projectDate"><br>
+        <input type="submit" name="updateProject_submit" value="Update">
+    </form>
+</div>
+
+<div>
+    <h3>5. Delete project </h3>
+    <form method="POST" name="deleteProject" action="/ProjectManagementSystem/projects/delete">
+        Project Id: <input type="text" name="projectId"><br>
+        <input type="submit" name="deleteProject_submit" value="Get info">
+    </form>
+</div>
+
+</body>
+</html>

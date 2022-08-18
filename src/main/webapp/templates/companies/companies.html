@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table :  Companies</h1>
+<h2>You can get such following information from this table</h2>
+<div>
+    <h3>1. List of  all companies </h3>
+    <form method="GET" name="listAllCompanies" action="/ProjectManagementSystem/companies/all_companies">
+        <input type="submit" name="listAllCompanies_submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2. All info about company </h3>
+    <form method="POST" action="/ProjectManagementSystem/companies/company_info">
+        Id: <input type="text" name="companyId"><br>
+        <input type="submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>3. Add company </h3>
+    <form method="POST" name="addCompany" action="/ProjectManagementSystem/companies/add">
+        Company Name: <input type="text" name="companyName"><br>
+        CEO: <input type="text" name="companyCEO"><br>
+        <input type="submit" name="addCompany_submit" value="Add">
+    </form>
+</div>
+
+<div>
+    <h3>4. Update company data </h3>
+    <form method="POST" name="updateCompany" action="/ProjectManagementSystem/companies/update">
+        ID: <input type="text" name="companyId"><br>
+        Name: <input type="text" name="companyName"><br>
+        CEO: <input type="text" name="companyCEO"><br>
+        <input type="submit" name="updateCompany_submit" value="Update">
+    </form>
+</div>
+
+<div>
+    <h3>5. Delete company </h3>
+    <form method="POST" name="deleteCompany" action="/ProjectManagementSystem/companies/delete">
+        Company Id: <input type="text" name="companyId"><br>
+        <input type="submit" name="deleteCompany_submit" value="Delete">
+    </form>
+</div>
+
+</body>
+</html>

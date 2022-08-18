@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .inline {
+    font-size: larger;
+    font: italic small-caps bold 16px/2 cursive;
+    border:2px solid red;
+    font-weight: lighter;
+	background-color:#D0B084;
+    padding:7px;
+    margin:7px;
+	border-radius:7px;
+	opacity:0.9;
+	box-shadow: 10px 10px 10px#2F3841;
+	text-align:center;
+    display: inline-block;
+    }
+</style>
+
+
+<h1 th:text="'Developers: ' + ${list.size()}" class='inline'></h1>
+
+<div th:each="l: ${list}">
+    <div th:text="'Id: ' + ${l.id}" class='inline'></div>
+    <div th:text="'First Name: ' + ${l.first_name}" class='inline'></div>
+    <div th:text="'Last Name: ' + ${l.last_name}" class='inline'></div>
+    <div th:text="'Age: ' + ${l.age}" class='inline'></div>
+    <div th:text="'Salary: ' + ${l.salary}" class='inline'></div>
+<!--    <td><a href="updateDevForm?id=${l.id}">Edit</a></td>-->
+<!--    <td><a href="removeDeveloper?id=${l.id}">Delete</a></td>-->
+</div>
+
+<html>
