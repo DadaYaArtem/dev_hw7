@@ -1,22 +1,18 @@
 package model.skills;
 
 import model.Command;
-import model.projects.ProjectDaoService;
 import org.thymeleaf.TemplateEngine;
-import storage.DatabaseConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DeleteSkillCommand implements Command {
-    SkillDaoService skillDaoService;
+    ISkillDaoService skillDaoService;
 
     public DeleteSkillCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        skillDaoService = new SkillDaoService(connection);
+        skillDaoService = new HibernateSkillDaoService();
     }
 
     @Override

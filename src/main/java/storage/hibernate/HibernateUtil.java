@@ -2,12 +2,13 @@ package storage.hibernate;
 
 
 import lombok.Getter;
+import model.companies.Company;
 import model.customers.Customer;
 import model.developers.Developer;
+import model.projects.Project;
 import model.skills.Skill;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
@@ -26,6 +27,8 @@ public class HibernateUtil {
         sessionFactory = new Configuration()
                 .addAnnotatedClass(Developer.class)
                 .addAnnotatedClass(Customer.class)
+                .addAnnotatedClass(Company.class)
+                .addAnnotatedClass(Project.class)
                 .addAnnotatedClass(Skill.class)
                 .buildSessionFactory();
     }

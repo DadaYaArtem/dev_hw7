@@ -1,23 +1,18 @@
 package model.companies;
 
 import model.Command;
-import model.developers.Developer;
 import org.thymeleaf.TemplateEngine;
-import storage.DatabaseConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class AddCompanyCommand implements Command {
-    CompanyDaoService companyDaoService;
-
+    ICompanyDaoService companyDaoService;
 
     public AddCompanyCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        companyDaoService = new CompanyDaoService(connection);
+        companyDaoService = new HibernateCompaniesDaoService();
     }
 
     @Override
@@ -29,7 +24,7 @@ public class AddCompanyCommand implements Command {
         company.setCeo(req.getParameter("companyCEO"));
 
         if (companyDaoService.create(company) == companyDaoService.maxId()) {
-            resp.getWriter().write("Successfully created new developers with id: " + companyDaoService.maxId());
+            resp.getWriter().write("Successfully created new company with id: " + companyDaoService.maxId());
         } else {
             resp.getWriter().write("Error");
         }

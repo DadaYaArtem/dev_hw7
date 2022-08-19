@@ -1,7 +1,6 @@
 package model.companies;
 
 import model.Command;
-import model.developers.DeveloperDaoService;
 import org.thymeleaf.TemplateEngine;
 import storage.DatabaseConnection;
 
@@ -12,12 +11,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DeleteCompanyCommand implements Command {
-    CompanyDaoService companyDaoService;
-
+    ICompanyDaoService companyDaoService;
 
     public DeleteCompanyCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        companyDaoService = new CompanyDaoService(connection);
+        companyDaoService = new HibernateCompaniesDaoService();
     }
 
     @Override

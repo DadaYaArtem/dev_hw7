@@ -17,7 +17,6 @@ public class GetInformationAboutAllDevelopersCommand implements Command {
 
 
     public GetInformationAboutAllDevelopersCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
         developerDaoService = new HibernateDeveloperDaoService();
     }
 

@@ -1,7 +1,6 @@
 package model.projects;
 
 import model.Command;
-import model.companies.CompanyDaoService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import storage.DatabaseConnection;
@@ -14,12 +13,10 @@ import java.sql.SQLException;
 import java.util.Map;
 
 public class GetInformationAboutAllProjectsCommand implements Command {
-    ProjectDaoService projectDaoService;
-
+    IProjectDaoService projectDaoService;
 
     public GetInformationAboutAllProjectsCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        projectDaoService = new ProjectDaoService(connection);
+        projectDaoService = new HibernateProjectDaoService();
     }
 
 

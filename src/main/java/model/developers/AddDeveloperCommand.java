@@ -3,10 +3,10 @@ package model.developers;
 import model.Command;
 import model.developerProject.DeveloperProjectDaoService;
 import model.developerSkill.DeveloperSkillDaoService;
-import model.projects.Project;
-import model.projects.ProjectDaoService;
-import model.skills.Skill;
-import model.skills.SkillDaoService;
+import model.projects.HibernateProjectDaoService;
+import model.projects.IProjectDaoService;
+import model.skills.HibernateSkillDaoService;
+import model.skills.ISkillDaoService;
 import org.thymeleaf.TemplateEngine;
 import storage.DatabaseConnection;
 
@@ -15,21 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 public class AddDeveloperCommand implements Command {
     IDeveloperDaoService developerDaoService;
-    ProjectDaoService projectDaoService;
+    IProjectDaoService projectDaoService;
     DeveloperProjectDaoService developerProjectDaoService;
     DeveloperSkillDaoService developerSkillDaoService;
-    SkillDaoService skillDaoService;
+    ISkillDaoService skillDaoService;
 
     public AddDeveloperCommand() throws SQLException {
         Connection connection = DatabaseConnection.getConnection();
         developerDaoService = new HibernateDeveloperDaoService();
-        projectDaoService = new ProjectDaoService(connection);
+        projectDaoService = new HibernateProjectDaoService();
         developerProjectDaoService = new DeveloperProjectDaoService(connection);
-        skillDaoService = new SkillDaoService(connection);
+        skillDaoService = new HibernateSkillDaoService();
         developerSkillDaoService = new DeveloperSkillDaoService(connection);
     }
 
@@ -46,34 +45,34 @@ public class AddDeveloperCommand implements Command {
         long devId = developerDaoService.create(developer);
         System.out.println(devId);
 
-        List<String> projectNames = projectDaoService.getAll().stream().map(Project::getName).toList();
-        List<String> branches = skillDaoService.getAll().stream().map(it -> it.getBranch().name()).toList();
-        List<String> skills = skillDaoService.getAll().stream().map(it -> it.getSkill().name()).toList();
-
-
-        if (projectNames.contains(req.getParameter("developerProject"))){
-            List<Long> id = projectDaoService.getAll()
-                    .stream()
-                    .filter(it -> it.getName().equals(req.getParameter("developerProject")))
-                    .map(Project::getId)
-                    .toList();
-
-            System.out.println(devId);
-            System.out.println(id.get(0));
-
-            developerProjectDaoService.insertIntoDevProj(devId, id.get(0));
-        }
-
-        if (branches.contains(req.getParameter("developerLanguage")) && skills.contains(req.getParameter("developerLanguageLevel"))){
-            List<Long> skillId = skillDaoService.getAll()
-                    .stream()
-                    .filter(it -> it.getBranch().name().equals(req.getParameter("developerLanguage")))
-                    .filter(it -> it.getSkill().name().equals(req.getParameter("developerLanguageLevel")))
-                    .map(Skill::getId)
-                    .toList();
-
-            developerSkillDaoService.insertIntoDevSkill(skillId.get(0), devId);
-        }
+//        List<String> projectNames = projectDaoService.getAll().stream().map(Project::getName).toList();
+//        List<String> branches = skillDaoService.getAll().stream().map(it -> it.getBranch().name()).toList();
+//        List<String> skills = skillDaoService.getAll().stream().map(it -> it.getSkill().name()).toList();
+//
+//
+//        if (projectNames.contains(req.getParameter("developerProject"))){
+//            List<Long> id = projectDaoService.getAll()
+//                    .stream()
+//                    .filter(it -> it.getName().equals(req.getParameter("developerProject")))
+//                    .map(Project::getId)
+//                    .toList();
+//
+//            System.out.println(devId);
+//            System.out.println(id.get(0));
+//
+//            developerProjectDaoService.insertIntoDevProj(devId, id.get(0));
+//        }
+//
+//        if (branches.contains(req.getParameter("developerLanguage")) && skills.contains(req.getParameter("developerLanguageLevel"))){
+//            List<Long> skillId = skillDaoService.getAll()
+//                    .stream()
+//                    .filter(it -> it.getBranch().name().equals(req.getParameter("developerLanguage")))
+//                    .filter(it -> it.getSkill().name().equals(req.getParameter("developerLanguageLevel")))
+//                    .map(Skill::getId)
+//                    .toList();
+//
+//            developerSkillDaoService.insertIntoDevSkill(skillId.get(0), devId);
+//        }
 
 //        if (devId == developerDaoService.maxId()) {
 //            resp.getWriter().write("Successfully created new developers with id: " + developerDaoService.maxId());

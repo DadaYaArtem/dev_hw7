@@ -1,8 +1,6 @@
 package model.customers;
 
 import model.Command;
-import model.developers.Developer;
-import model.developers.DeveloperDaoService;
 import org.thymeleaf.TemplateEngine;
 import storage.DatabaseConnection;
 
@@ -13,12 +11,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class AddCustomerCommand implements Command {
-    CustomerDaoService customerDaoService;
-
+    ICustomerDaoService customerDaoService;
 
     public AddCustomerCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        customerDaoService = new CustomerDaoService(connection);
+        customerDaoService = new HibernateCustomerDaoService();
     }
 
     @Override

@@ -2,21 +2,17 @@ package model.customers;
 
 import model.Command;
 import org.thymeleaf.TemplateEngine;
-import storage.DatabaseConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DeleteCustomerCommand implements Command {
-    CustomerDaoService customerDaoService;
-
+    ICustomerDaoService customerDaoService;
 
     public DeleteCustomerCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        customerDaoService = new CustomerDaoService(connection);
+        customerDaoService = new HibernateCustomerDaoService();
     }
 
     @Override

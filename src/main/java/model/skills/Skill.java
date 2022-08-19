@@ -10,9 +10,8 @@ public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Enumerated(EnumType.STRING)
     @Column
-    private Branch branch;
+    private String  branch;
     @Enumerated(EnumType.STRING)
     @Column
     private Skillset skill;

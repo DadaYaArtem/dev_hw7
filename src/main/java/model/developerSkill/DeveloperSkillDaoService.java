@@ -29,7 +29,7 @@ public class DeveloperSkillDaoService {
             while (rs.next()) {
                 Skill skill = new Skill();
                 skill.setId(rs.getLong("SKILL_ID"));
-                skill.setBranch(Skill.Branch.valueOf(rs.getString("branch")));
+                skill.setBranch((rs.getString("branch")));
                 skill.setSkill(Skill.Skillset.valueOf(rs.getString("skill")));
 
                 result.add(skill);

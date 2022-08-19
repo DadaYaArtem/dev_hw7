@@ -6,24 +6,15 @@ INSERT INTO developers(first_name, last_name, age, salary) VALUES
 
 INSERT INTO skills (branch, skill) VALUES
 ('Java', 'Junior'),
-('Java', 'Middle'),
 ('Java', 'Senior'),
-('CPLUSPLUS', 'Junior'),
-('CPLUSPLUS', 'Middle'),
-('CPLUSPLUS', 'Senior'),
-('CSHARP', 'Junior'),
-('CSHARP', 'Middle'),
-('CSHARP', 'Senior'),
-('JS', 'Junior'),
-('JS', 'Middle'),
-('JS', 'Senior');
+('CSHARP', 'Middle');
 
 
 INSERT INTO skills_developers (developer_id, skill_id) VALUES
 (1,1),
-(2,3),
+(2,2),
+(3,2),
 (3,3),
-(3,8),
 (4,1);
 
 INSERT INTO projects(name, cost, foundation_date) VALUES
