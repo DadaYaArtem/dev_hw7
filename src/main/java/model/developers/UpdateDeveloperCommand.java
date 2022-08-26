@@ -1,35 +1,32 @@
 package model.developers;
 
 import model.Command;
-import model.developerProject.DeveloperProjectDaoService;
-import model.developerSkill.DeveloperSkillDaoService;
+import model.developerProject.HibernateDevProjDaoService;
+import model.developerSkill.HibernateDevSkillDaoService;
 import model.projects.HibernateProjectDaoService;
 import model.projects.IProjectDaoService;
 import model.skills.HibernateSkillDaoService;
 import model.skills.ISkillDaoService;
 import org.thymeleaf.TemplateEngine;
-import storage.DatabaseConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class UpdateDeveloperCommand  implements Command {
     IDeveloperDaoService developerDaoService;
     IProjectDaoService projectDaoService;
-    DeveloperProjectDaoService developerProjectDaoService;
-    DeveloperSkillDaoService developerSkillDaoService;
+    HibernateDevProjDaoService developerProjectDaoService;
+    HibernateDevSkillDaoService developerSkillDaoService;
     ISkillDaoService skillDaoService;
 
     public UpdateDeveloperCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
         developerDaoService = new HibernateDeveloperDaoService();
         projectDaoService = new HibernateProjectDaoService();
-        developerProjectDaoService = new DeveloperProjectDaoService(connection);
+        developerProjectDaoService = new HibernateDevProjDaoService();
         skillDaoService = new HibernateSkillDaoService();
-        developerSkillDaoService = new DeveloperSkillDaoService(connection);
+        developerSkillDaoService = new HibernateDevSkillDaoService();
     }
 
     @Override

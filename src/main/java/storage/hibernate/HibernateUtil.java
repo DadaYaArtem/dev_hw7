@@ -10,6 +10,8 @@ import model.skills.Skill;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import prefs.Prefs;
+import storage.DatabaseInitService;
 
 import java.util.List;
 
@@ -31,6 +33,8 @@ public class HibernateUtil {
                 .addAnnotatedClass(Project.class)
                 .addAnnotatedClass(Skill.class)
                 .buildSessionFactory();
+
+        new DatabaseInitService().initDB(new Prefs().getString(Prefs.URL));
     }
 
     public static HibernateUtil getInstance() {

@@ -2,7 +2,9 @@ package storage;
 
 import org.flywaydb.core.Flyway;
 
-public class DatabaseInitService {
+import javax.servlet.ServletContextListener;
+
+public class DatabaseInitService implements ServletContextListener {
     public void initDB(String connectionUrl) {
         Flyway flyway = Flyway
                 .configure()

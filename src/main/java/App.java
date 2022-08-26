@@ -1,19 +1,26 @@
 import model.customers.HibernateCustomerDaoService;
+import model.developerProject.HibernateDevProjDaoService;
+import model.developerSkill.HibernateDevSkillDaoService;
 import model.developers.HibernateDeveloperDaoService;
-import prefs.Prefs;
-import storage.DatabaseInitService;
+import model.projects.HibernateProjectDaoService;
+import model.skills.HibernateSkillDaoService;
 
 import java.sql.SQLException;
 
 
 public class App {
     public static void main(String[] args) throws SQLException{
-        new DatabaseInitService().initDB(new Prefs().getString(Prefs.URL));
 
+
+        HibernateProjectDaoService hProjService = new HibernateProjectDaoService();
+
+        HibernateDevSkillDaoService hDevSkillService = new HibernateDevSkillDaoService();
+        HibernateDevProjDaoService hDevProjService = new HibernateDevProjDaoService();
         HibernateDeveloperDaoService hDevDaoService = new HibernateDeveloperDaoService();
         HibernateCustomerDaoService hCusDaoService = new HibernateCustomerDaoService();
+        HibernateSkillDaoService hSkillService = new HibernateSkillDaoService();
 
-//        hDevDaoService.create(new Developer());
-        System.out.println(hDevDaoService.getAll());
+        System.out.println(hDevProjService.getAllProjects(1));
+
     }
 }

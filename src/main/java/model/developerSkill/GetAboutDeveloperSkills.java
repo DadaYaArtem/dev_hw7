@@ -3,21 +3,18 @@ package model.developerSkill;
 import model.Command;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import storage.DatabaseConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Map;
 
 public class GetAboutDeveloperSkills implements Command {
-    DeveloperSkillDaoService developerSkillDaoService;
+    HibernateDevSkillDaoService developerSkillDaoService;
 
     public GetAboutDeveloperSkills() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        developerSkillDaoService = new DeveloperSkillDaoService(connection);
+        developerSkillDaoService = new HibernateDevSkillDaoService();
     }
 
     @Override

@@ -1,24 +1,20 @@
 package model.developerProject;
 
 import model.Command;
-import model.developerProject.DeveloperProjectDaoService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import storage.DatabaseConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Map;
 
 public class GetAboutProjectsCommand implements Command {
-    DeveloperProjectDaoService developerProjectDaoService;
+    HibernateDevProjDaoService developerProjectDaoService;
 
     public GetAboutProjectsCommand() throws SQLException {
-        Connection connection = DatabaseConnection.getConnection();
-        developerProjectDaoService = new DeveloperProjectDaoService(connection);
+        developerProjectDaoService = new HibernateDevProjDaoService();
     }
 
     @Override

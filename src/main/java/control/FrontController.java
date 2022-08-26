@@ -3,8 +3,6 @@ package control;
 import model.CommandService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
-import prefs.Prefs;
-import storage.DatabaseInitService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -17,9 +15,9 @@ import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/*")
 public class FrontController extends HttpServlet {
+
     private TemplateEngine engine;
     private CommandService commandService;
-
 
     @Override
     public void init(ServletConfig config) {
