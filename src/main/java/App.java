@@ -13,14 +13,13 @@ public class App {
 
 
         HibernateProjectDaoService hProjService = new HibernateProjectDaoService();
-
         HibernateDevSkillDaoService hDevSkillService = new HibernateDevSkillDaoService();
         HibernateDevProjDaoService hDevProjService = new HibernateDevProjDaoService();
         HibernateDeveloperDaoService hDevDaoService = new HibernateDeveloperDaoService();
         HibernateCustomerDaoService hCusDaoService = new HibernateCustomerDaoService();
         HibernateSkillDaoService hSkillService = new HibernateSkillDaoService();
 
-        System.out.println(hDevProjService.getAllProjects(1));
+//        System.out.println(hDevProjService.getAllProjects(1));
 
     }
 }

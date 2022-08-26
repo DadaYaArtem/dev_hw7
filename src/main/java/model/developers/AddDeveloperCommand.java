@@ -42,10 +42,8 @@ public class AddDeveloperCommand implements Command {
         developer.setAge(Integer.parseInt(req.getParameter("developerAge")));
         developer.setSalary(Integer.parseInt(req.getParameter("developerSalary")));
 
-        long devId = developerDaoService.maxId() + 1;
-
         List<String> projectNames = projectDaoService.getAll().stream().map(Project::getName).toList();
-        List<String> branches = skillDaoService.getAll().stream().map(Skill::getBranch).toList();
+        List<String> branches = skillDaoService.getAll().stream().map(it -> it.getBranch()).toList();
         List<String> skills = skillDaoService.getAll().stream().map(it -> it.getSkill().name()).toList();
 
 

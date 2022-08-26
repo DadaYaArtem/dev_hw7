@@ -40,7 +40,7 @@ public class HibernateDeveloperDaoService implements IDeveloperDaoService{
     public void update(Developer developer) throws SQLException {
         Session session = HibernateUtil.getInstance().getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            session.merge(developer);
+            session.saveOrUpdate(developer);
             transaction.commit();
         session.close();
     }
