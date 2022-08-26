@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class Prefs {
     public static final String URL = "dbUrl";
-    public static final String DEFAULT_PREFS_FILENAME = "D:\\homeworks\\dev_hw7\\prefs.json";
+    public static final String DEFAULT_PREFS_FILENAME = "D:\\homeworks\\dev_hw7\\src\\main\\resources\\prefs.json";
 
     private Map<String, Object> prefs = new HashMap<>();
 
