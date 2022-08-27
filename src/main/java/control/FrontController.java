@@ -20,11 +20,12 @@ public class FrontController extends HttpServlet {
     private CommandService commandService;
 
     @Override
-    public void init(ServletConfig config) {
+    public void init(ServletConfig config) throws ServletException {
         engine = new TemplateEngine();
+        super.init(config);
 
         FileTemplateResolver resolver = new FileTemplateResolver();
-        resolver.setPrefix("D:\\учёба доп\\ProjectManagementSystem2\\src\\main\\webapp\\templates\\");
+        resolver.setPrefix(config.getServletContext().getRealPath("") + "\\");
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
         resolver.setOrder(engine.getTemplateResolvers().size());

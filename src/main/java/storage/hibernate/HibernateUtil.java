@@ -34,7 +34,7 @@ public class HibernateUtil {
                 .addAnnotatedClass(Skill.class)
                 .buildSessionFactory();
 
-        new DatabaseInitService().initDB(new Prefs().getString(Prefs.URL));
+        new DatabaseInitService().initDB(Prefs.URL);
     }
 
     public static HibernateUtil getInstance() {

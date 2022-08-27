@@ -12,7 +12,7 @@ public class DatabaseConnection {
         Connection con=null;
         try{
             Class.forName("org.h2.Driver");
-                con=DriverManager.getConnection(new Prefs().getString(Prefs.URL));
+                con=DriverManager.getConnection(Prefs.URL);
         }catch(Exception e){
             e.printStackTrace();
         }
